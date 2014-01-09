@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140109210229) do
+ActiveRecord::Schema.define(:version => 20140109230655) do
 
   create_table "areas", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(:version => 20140109210229) do
 
   add_index "areas", ["place_id"], :name => "index_areas_on_place_id"
   add_index "areas", ["user_id"], :name => "index_areas_on_user_id"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.text     "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "likes", :force => true do |t|
     t.integer  "liked_id"
@@ -47,9 +58,10 @@ ActiveRecord::Schema.define(:version => 20140109210229) do
     t.integer  "place_id"
     t.integer  "user_id"
     t.text     "message"
-    t.integer  "likes_count", :default => 0
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "likes_count",    :default => 0
+    t.integer  "comments_count", :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "posts", ["place_id"], :name => "index_posts_on_place_id"

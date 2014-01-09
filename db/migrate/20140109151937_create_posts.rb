@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.references :user
       t.text :message
       t.integer :likes_count, default: 0
+      t.integer :comments_count, default: 0
 
       t.timestamps
     end
