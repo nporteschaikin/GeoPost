@@ -12,9 +12,9 @@ module Likeable
     
     scope   :most_liked_in_last,  lambda { |time| 
       joins(:likes)
-        .select("`#{self.table_name}`.*, COUNT(`#{Like.table_name}`.`id`) as `#{Like.table_name}_count`")
         .where(likes: {created_at: time.ago..Time.now})
-        .order("`#{Like.table_name}_count`")
+        .group("`#{self.table_name}`.`id`")
+        .order("COUNT(`#{Like.table_name}`.`id`) DESC")
     }
     
     def is_liked_by? user
