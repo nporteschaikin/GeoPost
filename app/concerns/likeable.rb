@@ -4,7 +4,12 @@ module Likeable
     
     has_many  :likes, as: :liked
     
-    scope   :where_liked_by,      lambda { |user| joins(:likes).where(likes: {user_id: user.id}) }
+    scope   :where_liked_by,      lambda { |user| 
+      joins(:likes)
+        .where(likes: {user_id: user.id}) 
+        .order("`#{Like.table_name}`.`created_at` DESC")
+    }
+    
     scope   :most_liked_in_last,  lambda { |time| 
       joins(:likes)
         .select("`#{self.table_name}`.*, COUNT(`#{Like.table_name}`.`id`) as `#{Like.table_name}_count`")
