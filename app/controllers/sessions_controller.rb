@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   
-	before_filter  :signed_out, only: [:new, :create]
-	before_filter  :signed_in,  only: [:destroy]
+  before_filter  :signed_out, only: [:new, :create]
+  before_filter  :signed_in,  only: [:destroy]
   
   def new; end
   
@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_back_or root_path
     else
-			flash.now[:error] = "Invalid email or password."
-			render "new"
+      flash.now[:error] = "Invalid email or password."
+      render "new"
     end
   end
   
