@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
   belongs_to  :default_area, class_name: "Area"
   validate    :default_area_belongs_to_user
   
-  validates   :username, presence: true, uniqueness: {case_sensitive: false} # FIXME: More elaborate validation required
+  validates   :username, presence: true, uniqueness: { case_sensitive: false } # FIXME: More elaborate validation required
   
-  validates   :email, email: true
+  validates   :email, email: true, uniqueness: { case_sensitive: false }
   validates   :password, confirmation: true, length: { minimum: 6 }, on: :create
   validates   :password_confirmation, presence: true, on: :create
   
