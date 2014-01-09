@@ -17,6 +17,19 @@ class User < ActiveRecord::Base
   before_save   { |user| user.email = email.downcase }
   before_save   :update_remember_token
   
+  class << self
+    
+    def find_by_email_or_username email_or_username
+      case email_or_username
+      when /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+        find_by_email email_or_username
+      else
+        find_by_username email_or_username
+      end
+    end
+    
+  end
+  
   private
   
     def update_remember_token
