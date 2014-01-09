@@ -1,12 +1,15 @@
 class User < ActiveRecord::Base
   
-  attr_accessible   :first_name, :last_name, :email, :password, 
-                    :password_confirmation, :date_of_birth
+  attr_accessible   :username, :first_name, :last_name, :email, 
+                    :password, :password_confirmation, :date_of_birth
   
   has_secure_password
   
   has_many    :posts
   has_many    :areas
+  
+  belongs_to  :default_area,
+              class_name: "Area"
   
   validates   :username, presence: true, uniqueness: {case_sensitive: false} # FIXME: More elaborate validation required
   

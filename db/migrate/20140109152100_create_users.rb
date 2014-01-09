@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :password_digest
       t.string :remember_token
+      t.references :default_area
       t.datetime :date_of_birth
 
       t.timestamps

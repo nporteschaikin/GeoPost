@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20140109170027) do
     t.string   "last_name"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.integer  "default_area_id"
     t.datetime "date_of_birth"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
