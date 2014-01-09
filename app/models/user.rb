@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   
   has_many    :posts
   has_many    :areas
+  has_many    :likes
   
   belongs_to  :default_area, class_name: "Area"
   validate    :default_area_belongs_to_user

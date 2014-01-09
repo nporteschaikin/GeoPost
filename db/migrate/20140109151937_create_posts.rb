@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.references :place
       t.references :user
       t.text :message
+      t.integer :likes_count, default: 0
 
       t.timestamps
     end

@@ -24,11 +24,15 @@ class Place < ActiveRecord::Base
   
   def method_missing method, *args, &block
     case method
-    when /^([a-z]*[?])$/
-      types.include? method[/[a-z]{1,}/]
+    when /^([a-z_]*[?])$/
+      types.include? method[/[a-z_]{1,}/]
     else
       super
     end
+  end
+  
+  def distance_to place
+    Geocoder::Calculations.distance_between [self.latitude, self.longitude], [place.latitude, place.longitude]
   end
   
   class << self

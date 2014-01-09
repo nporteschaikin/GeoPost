@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140109170027) do
+ActiveRecord::Schema.define(:version => 20140109210229) do
 
   create_table "areas", :force => true do |t|
     t.integer  "user_id"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20140109170027) do
   add_index "areas", ["place_id"], :name => "index_areas_on_place_id"
   add_index "areas", ["user_id"], :name => "index_areas_on_user_id"
 
+  create_table "likes", :force => true do |t|
+    t.integer  "liked_id"
+    t.string   "liked_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+  end
+
+  add_index "likes", ["liked_id"], :name => "index_likes_on_liked_id"
+  add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
+
   create_table "places", :force => true do |t|
     t.string "query"
     t.float  "latitude"
@@ -37,8 +47,9 @@ ActiveRecord::Schema.define(:version => 20140109170027) do
     t.integer  "place_id"
     t.integer  "user_id"
     t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "likes_count", :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "posts", ["place_id"], :name => "index_posts_on_place_id"
