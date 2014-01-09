@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   has_many    :posts
   has_many    :areas
   
-  belongs_to  :default_area,
-              class_name: "Area"
+  belongs_to  :default_area, class_name: "Area"
+  validate    :default_area_belongs_to_user
   
   validates   :username, presence: true, uniqueness: {case_sensitive: false} # FIXME: More elaborate validation required
   
@@ -37,6 +37,12 @@ class User < ActiveRecord::Base
   
     def update_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
+    end
+    
+    def default_area_belongs_to_user
+      unless default_area.nil?
+        errors.add(:default_area, "cannot be added to this user") unless default_area.user_id == id
+      end
     end
         
 end
