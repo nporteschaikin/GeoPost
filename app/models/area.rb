@@ -1,7 +1,7 @@
 class Area < ActiveRecord::Base
   
   class << self
-    def geo *associations
+    def area_associations *associations
       associations.each do |association|
         define_method association do
           "#{association}".classify.constantize.near place, radius
@@ -15,7 +15,7 @@ class Area < ActiveRecord::Base
   belongs_to  :user
   belongs_to  :place
   
-  geo   :posts
+  area_associations   :posts
   
   validates_associated        :user, :place
   validates_presence_of       :user, :place, :label
