@@ -21,5 +21,13 @@ module Likeable
       likes.find_by_user_id(user.id).present?
     end
     
+    def like! user
+      likes.create user: user
+    end
+    
+    def unlike! user
+      likes.find_by_user_id(user.id).try(:destroy)
+    end
+    
   end
 end
