@@ -17,7 +17,8 @@ a {
   }
 }
 
-$header-height: 50px;
+$header-height: 61px;
+$header-avatar-size: 35px;
 
 #header {
   
@@ -32,6 +33,15 @@ $header-height: 50px;
   padding: $margin;
   border: {
     bottom: 1px solid $colorA;
+  }
+  
+  figure {
+    position: absolute;
+    top: ($header-height - $header-avatar-size) / 2;
+    right: $margin * 2;
+    img {
+      @include prefix(border-radius, ($header-avatar-size / 2));
+    }
   }
   
 }
