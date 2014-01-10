@@ -18,6 +18,10 @@ first_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.
 second_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("359 Bowery, New York, NY 10003"))
 third_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"))
 
+fourth_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"))
+fifth_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"))
+sixth_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"))
+
 # likes
 Like.destroy_all
 first_post.like! first_user

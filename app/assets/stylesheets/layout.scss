@@ -1,0 +1,122 @@
+@import 'base/base';
+
+* {
+  @include prefix(box-sizing, border-box);
+  outline: none;
+}
+
+body {
+  color: $colorB;
+}
+
+a {
+  color: $colorC;
+  text-decoration: none;
+  &:hover {
+    color: $colorB;
+  }
+}
+
+$header-height: 50px;
+
+#header {
+  
+  @include prefix(box-shadow, $shadowA);
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $white;
+  height: $header-height;
+  padding: $margin;
+  border: {
+    bottom: 1px solid $colorA;
+  }
+  
+}
+
+main {
+  
+  padding: {
+    top: $header-height;
+  }
+  
+  &.Area {
+    
+    $area-posts-width: 300px;
+    position: relative;
+    
+    > div {
+      
+      padding: {
+        left: $area-posts-width;
+      }
+      
+      &:first-child {
+        @include prefix(box-shadow, $shadowA);
+        background: $white;
+        width: $area-posts-width;
+        position: fixed;
+        overflow: auto;
+        left: 0;
+        top: $header-height;
+        bottom: 0;
+        padding: 0;
+        border: {
+          right: 1px solid $colorA;
+        }
+      }
+      
+    }
+    
+    article {
+      
+      padding: ($margin * 2);
+      border: {
+        top: 1px solid $colorA;
+      }
+      
+      &:first-child {
+        border: {
+          top: 0;
+        }
+      }
+      
+      > figure {
+        top: $margin * 2;
+        left: $margin * 2;
+      }
+      
+    }
+    
+  }
+  
+}
+
+article {
+  
+  &.post {
+    
+    $post-avatar-size: 50px;
+    
+    position: relative;
+    
+    > figure {
+      position: absolute;
+      top: 0;
+      left: 0;
+      img {
+        @include prefix(border-radius, ($post-avatar-size / 2));
+      }
+    }
+    
+    > div {
+      @extend %inline-block;
+      padding: {
+        left: $post-avatar-size + $margin;
+      }
+    }
+    
+  }
+}

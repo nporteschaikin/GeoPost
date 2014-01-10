@@ -1,0 +1,14 @@
+@mixin prefix($attribute, $value) {
+  -moz-#{$attribute}: $value;
+  -webkit-#{$attribute}: $value;
+  -o-#{$attribute}: $value;
+  -ms-#{$attribute}: $value;
+  #{$attribute}: $value;
+}
+
+@mixin inline-block {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}

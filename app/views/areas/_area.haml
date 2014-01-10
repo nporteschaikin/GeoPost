@@ -1,2 +1,7 @@
-%h3 #{area.label}: Within #{pluralize area.radius, "mile"} of #{area.place.address}
-= render area.posts
+
+
+%main.Area
+  %div
+    = render area.posts
+  %div
+    %h3 #{area.label}: Within #{pluralize area.radius, "mile"} of #{area.place.address}

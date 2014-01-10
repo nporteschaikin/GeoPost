@@ -1,4 +1,5 @@
-= form_for :session, url: new_session_path do |f|
-  = f.text_field :email_or_username
-  = f.password_field :password
-  = f.submit
+%main
+  = form_for :session, url: new_session_path do |f|
+    = f.text_field :email_or_username
+    = f.password_field :password
+    = f.submit
