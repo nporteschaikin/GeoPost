@@ -1,0 +1,9 @@
+%article
+  %figure
+    = image_tag post.user.avatar.url(:small) unless post.user.avatar.nil?
+  %div
+    %header
+      %h4= link_to post.user.username, post.user
+      %h5= post.place.address
+    = simple_format post.message
+    %footer posted #{time_ago_in_words post.created_at} ago

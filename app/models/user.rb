@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   
+  include Assets::Associations
+  
   attr_accessible   :username, :first_name, :last_name, :email, 
                     :password, :password_confirmation, :date_of_birth
   
@@ -8,6 +10,8 @@ class User < ActiveRecord::Base
   has_many    :posts
   has_many    :areas
   has_many    :likes
+  
+  asset       :avatar
   
   belongs_to  :default_area, class_name: "Area"
   validate    :default_area_belongs_to_user

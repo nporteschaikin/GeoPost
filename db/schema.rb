@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140109230655) do
+ActiveRecord::Schema.define(:version => 20140110040955) do
 
   create_table "areas", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(:version => 20140109230655) do
 
   add_index "areas", ["place_id"], :name => "index_areas_on_place_id"
   add_index "areas", ["user_id"], :name => "index_areas_on_user_id"
+
+  create_table "assets", :force => true do |t|
+    t.string   "type"
+    t.integer  "attached_id"
+    t.string   "attached_type"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "assets", ["attached_id"], :name => "index_assets_on_attached_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
