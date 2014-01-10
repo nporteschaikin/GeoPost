@@ -6,14 +6,14 @@
 }
 
 body {
-  color: $colorB;
+  color: $asbestos;
 }
 
 a {
-  color: $colorC;
+  color: $concrete;
   text-decoration: none;
   &:hover {
-    color: $colorB;
+    color: $asbestos;
   }
 }
 
@@ -28,12 +28,9 @@ $header-avatar-size: 35px;
   top: 0;
   left: 0;
   width: 100%;
-  background: $white;
+  background: $emerald;
   height: $header-height;
   padding: $margin;
-  border: {
-    bottom: 1px solid $colorA;
-  }
   
   figure {
     position: absolute;
@@ -41,6 +38,10 @@ $header-avatar-size: 35px;
     right: $margin * 2;
     img {
       @include prefix(border-radius, ($header-avatar-size / 2));
+      @include prefix(box-shadow, $shadowB);
+    }
+    a {
+      display: block;
     }
   }
   
@@ -74,7 +75,7 @@ main {
         bottom: 0;
         padding: 0;
         border: {
-          right: 1px solid $colorA;
+          right: 1px solid $clouds;
         }
       }
       
@@ -84,7 +85,7 @@ main {
       
       padding: ($margin * 2);
       border: {
-        top: 1px solid $colorA;
+        top: 1px solid $clouds;
       }
       
       &:first-child {
@@ -118,6 +119,7 @@ article {
       left: 0;
       img {
         @include prefix(border-radius, ($post-avatar-size / 2));
+        @include prefix(box-shadow, $shadowB);
       }
     }
     
