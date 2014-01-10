@@ -28,5 +28,5 @@ third_post.like! second_user
 # comments
 Comment.destroy_all
 first_post.comments.create!(user: first_user, message: lorem_ipsum)
-second_post.comments.create! (user: second_user, message: lorem_ipsum)
+second_post.comments.create!(user: second_user, message: lorem_ipsum)
 third_post.comments.create!(user: first_user, message: lorem_ipsum)
