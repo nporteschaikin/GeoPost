@@ -17,5 +17,9 @@ module Geo
         
     }
     
+    scope   :in,    lambda { |places| 
+      joins(:place).where(places: {id: places})
+    }
+    
   end
 end
