@@ -3,6 +3,7 @@ body {
     family: 'Open Sans', sans-serif;
     smooth: always;
     size: 12px;
+    weight: 400;
   }
   line: {
     height: 1.5em;
@@ -14,5 +15,57 @@ body {
 label {
   font: {
     size: 10px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font: {
+    weight: 600;
+  }
+}
+
+h1 {
+  font: {
+    size: 19px;
+  }
+}
+
+h2 {
+  font: {
+    size: 17px;
+  }
+  line: {
+    height: 1.9em;
+  }
+}
+
+h3 {
+  font: {
+    size: 15px;
+  }
+  line: {
+    height: 1.7em;
+  }
+}
+
+h4 {
+  font: {
+    size: 13px;
+  }
+  line: {
+    height: 1.5em;
+  }
+}
+
+h5 {
+  font: {
+    size: 11px;
+  }
+  line: {
+    height: 1.3em;
   }
 }

@@ -3,7 +3,7 @@
     = image_tag post.user.avatar.url(:small) unless post.user.avatar.nil?
   %div
     %header
-      %h4= link_to post.user.username, post.user
+      %h3= link_to post.user.username, post.user
       %h5= post.place.address
     = simple_format post.message
     %footer

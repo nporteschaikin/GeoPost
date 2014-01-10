@@ -10,14 +10,14 @@ body {
 }
 
 a {
-  color: $concrete;
+  color: $wetasphalt;
   text-decoration: none;
   &:hover {
-    color: $asbestos;
+    color: $midnightblue;
   }
 }
 
-$header-height: 61px;
+$header-height: 51px;
 $header-avatar-size: 35px;
 
 #header {
@@ -28,9 +28,12 @@ $header-avatar-size: 35px;
   top: 0;
   left: 0;
   width: 100%;
-  background: $emerald;
+  background: $white;
   height: $header-height;
   padding: $margin;
+  border: {
+    bottom: 1px solid $clouds;
+  }
   
   figure {
     position: absolute;
@@ -127,6 +130,18 @@ article {
       @extend %inline-block;
       padding: {
         left: $post-avatar-size + $margin;
+      }
+    }
+    
+    header {
+      padding: {
+        bottom: $margin;
+      }
+    }
+    
+    footer {
+      padding: {
+        top: $margin;
       }
     }
     
