@@ -21,4 +21,15 @@ class Area < ActiveRecord::Base
   validates_presence_of       :user, :place, :label
   validates_numericality_of   :radius
   
+  after_save  :update_user_default_area_if_nil
+  
+  private
+  
+    def update_user_default_area_if_nil
+      if user.default_area.nil?
+        user.default_area = self
+        user.save!
+      end
+    end
+  
 end
