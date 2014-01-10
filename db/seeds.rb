@@ -32,6 +32,7 @@ second_post.comments.create!(user: second_user, message: lorem_ipsum)
 third_post.comments.create!(user: first_user, message: lorem_ipsum)
 
 # avatars
+Asset.destroy_all
 sample_path = File.join(Rails.root, "public", "seeds")
 first_user.build_avatar(attachment: File.open(File.join(sample_path, "first_user_avatar.jpg")))
 first_user.save!
