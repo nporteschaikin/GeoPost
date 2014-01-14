@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   
-  include Geo::Place
+  include Geo::Base
   include Likeable
   
   attr_accessible :message, :user, :place
@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
   
   has_many        :comments
   
-  validates   :message, length: { maximum: 250 }
+  validates               :message, length: { maximum: 250 }
   validates_presence_of   :user, :place
   validates_associated    :user, :place
 

@@ -6,6 +6,8 @@ class Place < ActiveRecord::Base
   serialize         :types, Array
   
   before_validation :geocode, if: ->(place) { place.query.present? and place.query_changed? }
+
+  has_many    :areas
   
   validates             :query, uniqueness: { case_sensitive: false }
   validates_presence_of :query

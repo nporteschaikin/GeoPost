@@ -4,7 +4,7 @@ class Area < ActiveRecord::Base
     def area_associations *associations
       associations.each do |association|
         define_method association do
-          "#{association}".classify.constantize.near place, radius
+          "#{association}".classify.constantize.within bounds
         end
       end
     end
@@ -21,14 +21,13 @@ class Area < ActiveRecord::Base
   validates_presence_of       :user, :place, :label
   validates_numericality_of   :radius
   
-  after_save  :update_user_default_area_if_nil
-  
-  def description
-    "within #{radius} #{radius == 1 ? "mile" : "miles"} of #{place.address}"
-  end
+  after_save    :update_user_default_area_if_nil
   
   def bounds
-    Geocoder::Calculations.bounding_box([place.latitude, place.longitude], radius)
+    Geocoder::Calculations.bounding_box(
+      [place.latitude, place.longitude], 
+      radius
+    )
   end
   
   private
