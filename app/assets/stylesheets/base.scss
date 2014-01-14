@@ -15,7 +15,7 @@ body {
     size: 16px;
   }
   line: {
-    height: 1.3em;
+    height: 1.4em;
   }
   color: #333;
   -webkit-font-smoothing: antialiased;
@@ -24,8 +24,27 @@ body {
 }
 
 a {
+  color: #777;
   text: {
     decoration: none;
+  }
+}
+
+h1 {
+  font: {
+    size: 25px;
+    weight: 600;
+  }
+  line: {
+    height: 1.4em;
+  }
+}
+
+h4 {
+  @extend %serif;
+  font: {
+    size: 16px;
+    weight: 100;
   }
 }
 

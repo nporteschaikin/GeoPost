@@ -2,7 +2,7 @@ article {
   &.Post {
   
     $margin: $margin * 2;
-    $avatar-width: 75px;
+    $avatar-width: 35px;
     background: $white;
     position: relative;
     margin: 0 0 $margin 0;
@@ -11,17 +11,7 @@ article {
     border: 1px solid $silver;
     
     
-    figure {
-      
-      position: absolute;
-      top: $margin;
-      right: $margin;
-      
-      img {
-        @include circle($avatar-width);
-      }
-      
-    }
+    
     
     > header {
       color: #777;
@@ -32,7 +22,36 @@ article {
     }
     
     > div {
-      padding: $margin ($avatar-width + ($margin * 2)) $margin $margin;
+      padding: $margin;
+      
+      > footer {
+        
+        position: relative;
+        min: {
+          height: $avatar-width;
+        }
+        padding: {
+          left: $avatar-width + 15px;
+        }
+        
+        font: {
+          size: 12px;
+        }
+        
+        img {
+          @include circle($avatar-width);
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        
+        li {
+          line: {
+            height: 1.4em;
+          }
+        }
+        
+      }
     }
     
     > footer {
@@ -54,18 +73,10 @@ article {
     p {
       font: {
         size: 20px;
-        weight: 600;
+        weight: 300;
       }
       margin: {
         bottom: $margin;
-      }
-    }
-    
-    li {
-      color: #777;
-      position: relative;
-      padding: {
-        left: 20px;
       }
     }
     

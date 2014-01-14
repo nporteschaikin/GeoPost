@@ -2,8 +2,31 @@ main {
   &.Area {
     
     $width: 750px;
-    margin: $margin auto;
-    width: $width;
+    
+    > header {
+      height: 300px;
+      background: $greensea;
+      color: $white;
+      position: relative;
+      @include prefix(text-shadow, $shadowC);
+      
+      > div {
+        position: absolute;
+        bottom: 0;
+        width: $width;
+        left: 50%;
+        padding: ($margin * 2) 0;
+        margin: {
+          left: -($width / 2);
+        }
+      }
+      
+    }
+    
+    > div {
+      margin: ($margin * 2) auto;
+      width: $width;
+    }
     
   }
 }

@@ -23,6 +23,10 @@ class Area < ActiveRecord::Base
   
   after_save  :update_user_default_area_if_nil
   
+  def description
+    "within #{radius} #{radius == 1 ? "mile" : "miles"} of #{place.address}"
+  end
+  
   private
   
     def update_user_default_area_if_nil

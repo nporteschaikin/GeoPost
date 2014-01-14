@@ -1,12 +1,16 @@
 %article.Post
 
   %div
-    
-    %figure
-      = image_tag post.user.avatar.url(:medium) unless post.user.avatar.nil?
       
     %section
       = simple_format post.message
+      
+    %footer
+      %figure
+        = image_tag post.user.avatar.url(:tiny) unless post.user.avatar.nil?
+      %ul 
+        %li #{link_to post.user.username, post.user} 
+        %li #{link_to "#{time_ago_in_words post.created_at} ago", post}
     
   %footer
     %i.pin

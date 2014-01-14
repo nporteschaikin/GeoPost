@@ -1,5 +1,14 @@
 
 
 %main.Area
-  = render area.posts.listing
+  
+  %header
+    %div
+      %h1
+        %i.map
+        #{area.label}
+      %h4= area.description
+  
+  %div
+    = render area.posts.listing
     
