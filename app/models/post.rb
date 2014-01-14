@@ -5,7 +5,10 @@ class Post < ActiveRecord::Base
   
   attr_accessible :message, :user, :place
   belongs_to      :user
-  default_scope   { order "created_at DESC" }
+  
+  default_scope   { order "posts.created_at DESC" }
+  
+  scope           :listing, lambda { includes :user, :place, :comments, :likes }
   
   has_many        :comments
   

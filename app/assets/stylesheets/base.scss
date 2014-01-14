@@ -1,0 +1,27 @@
+@import 'base/base';
+@import 'base/reset';
+@import 'base/fonts';
+
+* {
+  @include prefix(box-sizing, border-box);
+  outline: none;
+}
+
+body {
+  @extend %sans-serif;
+  background: $clouds;
+  font: {
+    weight: 400;
+    size: 16px;
+  }
+  line: {
+    height: 1.3em;
+  }
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  @include prefix(text-shadow, 1px 1px 1px rgba(0, 0, 0, 0.004))
+}
+
+@import 'objects/area';
+@import 'objects/post';

@@ -1,10 +1,26 @@
-%article.post
+%article.Post
+
   %figure
-    = image_tag post.user.avatar.url(:small) unless post.user.avatar.nil?
+    = image_tag post.user.avatar.url(:medium) unless post.user.avatar.nil?
+    
   %div
+    
     %header
-      %h3= link_to post.user.username, post.user
-      %h5= post.place.address
+      %i.pin
+      #{post.place.address}
+      
     = simple_format post.message
-    %footer
-      %label posted #{time_ago_in_words post.created_at} ago
+    
+    %ul
+    
+      %li
+        %i.user
+        #{link_to post.user.username, post.user}
+        
+      %li
+        %i.like
+        #{pluralize post.likes_count, "person"}
+        
+      %li
+        %i.conversation
+        #{pluralize post.comments_count, "comment"}

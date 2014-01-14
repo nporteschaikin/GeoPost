@@ -1,3 +1,9 @@
 %inline-block {
   @include inline-block;
 }
+
+%sans-serif {
+  font: {
+    family: "Lato", sans-serif;
+  }
+}

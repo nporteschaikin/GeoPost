@@ -12,3 +12,7 @@
   zoom: 1;
   *display: inline;
 }
+
+@mixin circle($width) {
+  @include prefix(border-radius, ($width / 2));
+}
