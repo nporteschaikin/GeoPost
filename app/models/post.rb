@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   
-  include Geo
+  include Geo::Place
   include Likeable
   
   attr_accessible :message, :user, :place

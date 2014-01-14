@@ -4,11 +4,16 @@
   
   %header
     %div
+    %hgroup
       %h1
         %i.map
         #{area.label}
       %h4= area.description
   
+  %script{type: "text/javascript"}
+    \//<![CDATA[
+    var area = new M('main.Area > header > div');
+    \//]]>
+    
   %div
     = render area.posts.listing
-    

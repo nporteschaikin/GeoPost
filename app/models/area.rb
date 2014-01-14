@@ -27,6 +27,10 @@ class Area < ActiveRecord::Base
     "within #{radius} #{radius == 1 ? "mile" : "miles"} of #{place.address}"
   end
   
+  def bounds
+    Geocoder::Calculations.bounding_box([place.latitude, place.longitude], radius)
+  end
+  
   private
   
     def update_user_default_area_if_nil
