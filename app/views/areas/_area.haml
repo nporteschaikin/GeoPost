@@ -8,7 +8,7 @@
       %h1
         %i.map
         #{area.label}
-      %h4= area.description
+      %h4 within #{pluralize area.radius, "mile"} of #{area.address}
   
   %script{type: "text/javascript"}
     \//<![CDATA[

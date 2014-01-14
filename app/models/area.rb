@@ -23,6 +23,8 @@ class Area < ActiveRecord::Base
   
   after_save    :update_user_default_area_if_nil
   
+  delegate      :address, to: :place
+  
   def bounds
     Geocoder::Calculations.bounding_box(
       [place.latitude, place.longitude], 
