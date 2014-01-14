@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(:version => 20140110040955) do
   create_table "areas", :force => true do |t|
     t.integer  "user_id"
     t.integer  "place_id"
-    t.integer  "radius"
+    t.decimal  "radius",     :precision => 8, :scale => 2
     t.string   "label"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   add_index "areas", ["place_id"], :name => "index_areas_on_place_id"

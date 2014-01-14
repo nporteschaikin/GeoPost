@@ -6,7 +6,7 @@ second_user = User.create!(email: "austria@porteschaikin.com", username: "aporte
 # areas
 Area.destroy_all
 Place.destroy_all
-williamsburg_area = first_user.areas.create!(place: Place.find_or_create("109 North 5th St, Brooklyn, NY 11249"), radius: 50, label: "Home")
+williamsburg_area = first_user.areas.create!(place: Place.find_or_create("109 North 5th St, Brooklyn, NY 11249"), radius: 0.5, label: "Home")
 east_village_area = first_user.areas.create!(place: Place.find_or_create("35 Great Jones St., New York, NY 10012"), radius: 1, label: "Work")
 westchester_area = second_user.areas.create!(place: Place.find_or_create("21 Elena Drive, Cortlandt Manor, NY 10567"), radius: 20, label: "Husband")
 norwalk_area = second_user.areas.create!(place: Place.find_or_create("Norwalk, CT"), radius: 20, label: "Home")

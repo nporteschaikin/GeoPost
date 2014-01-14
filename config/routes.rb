@@ -8,6 +8,6 @@ Places::Application.routes.draw do
   post    "/in"   => "sessions#create",  as: :new_session
   delete  "/out"  => "sessions#destroy", as: :sign_out
   
-  resources   :users, :posts
+  resources   :users, :posts, :areas
   
 end
