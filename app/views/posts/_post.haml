@@ -15,3 +15,9 @@
       %ul 
         %li #{link_to post.user.username, post.user} 
         %li #{link_to "#{time_ago_in_words post.created_at} ago", post}
+        
+  - if map
+    %script{type: "text/javascript"}
+      \//<![CDATA[
+      #{map}.addPlace([#{post.place.latitude}, #{post.place.longitude}]);
+      \//]]>

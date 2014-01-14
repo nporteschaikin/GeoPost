@@ -1,5 +1,3 @@
-
-
 %main.Area
   
   %header
@@ -12,8 +10,8 @@
   
   %script{type: "text/javascript"}
     \//<![CDATA[
-    var area = new M('main.Area > header > div');
+    var area = new M('main.Area > header > div', #{area.bounds}, '');
     \//]]>
     
   %div
-    = render area.posts.listing
+    = render area.posts.listing, area: area, map: "area"
