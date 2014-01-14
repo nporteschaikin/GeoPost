@@ -4,10 +4,6 @@ main {
     $width: 750px;
     margin: $margin auto;
     width: $width;
-    background: $white;
-    @include prefix(border-radius, 6px);
-    @include prefix(box-shadow, $shadowB);
-    border: 1px solid $silver;
     
   }
 }

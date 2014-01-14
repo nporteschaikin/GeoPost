@@ -23,5 +23,12 @@ body {
   @include prefix(text-shadow, 1px 1px 1px rgba(0, 0, 0, 0.004))
 }
 
+a {
+  text: {
+    decoration: none;
+  }
+}
+
+@import 'objects/buttons';
 @import 'objects/area';
 @import 'objects/post';

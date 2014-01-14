@@ -3,11 +3,13 @@ article {
   
     $margin: $margin * 2;
     $avatar-width: 75px;
+    background: $white;
     position: relative;
-    padding: $margin ($avatar-width + ($margin * 2)) $margin $margin;
-    border: {
-      bottom: 1px solid $silver;
-    }
+    margin: 0 0 $margin 0;
+    @include prefix(border-radius, 3px);
+    @include prefix(box-shadow, $shadowB);
+    border: 1px solid $silver;
+    
     
     figure {
       
@@ -21,20 +23,32 @@ article {
       
     }
     
-    header {
+    > header {
+      color: #777;
       position: relative;
       margin: {
         bottom: $margin;
       }
-      padding: {
-        left: 20px;
-      }
     }
     
-    i {
-      position: absolute;
-      top: 3px;
-      left: 0;
+    > div {
+      padding: $margin ($avatar-width + ($margin * 2)) $margin $margin;
+    }
+    
+    > footer {
+      padding: ($margin / 2) $margin;
+      background: $white;
+      border: {
+        top: 1px solid $silver;
+      }
+      font: {
+        size: 14px;
+        weight: 400;
+      }
+      color: #666;
+      i {
+        color: $pomegranate;
+      }
     }
     
     p {
@@ -48,6 +62,7 @@ article {
     }
     
     li {
+      color: #777;
       position: relative;
       padding: {
         left: 20px;

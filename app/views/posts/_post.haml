@@ -1,26 +1,13 @@
 %article.Post
 
-  %figure
-    = image_tag post.user.avatar.url(:medium) unless post.user.avatar.nil?
-    
   %div
     
-    %header
-      %i.pin
-      #{post.place.address}
+    %figure
+      = image_tag post.user.avatar.url(:medium) unless post.user.avatar.nil?
       
-    = simple_format post.message
+    %section
+      = simple_format post.message
     
-    %ul
-    
-      %li
-        %i.user
-        #{link_to post.user.username, post.user}
-        
-      %li
-        %i.like
-        #{pluralize post.likes_count, "person"}
-        
-      %li
-        %i.conversation
-        #{pluralize post.comments_count, "comment"}
+  %footer
+    %i.pin
+    #{post.place.address}
