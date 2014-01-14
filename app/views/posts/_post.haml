@@ -1,5 +1,9 @@
 %article.Post
 
+  %header
+    %i.pin
+    #{post.place.address}
+    
   %div
       
     %section
@@ -11,7 +15,3 @@
       %ul 
         %li #{link_to post.user.username, post.user} 
         %li #{link_to "#{time_ago_in_words post.created_at} ago", post}
-    
-  %footer
-    %i.pin
-    #{post.place.address}

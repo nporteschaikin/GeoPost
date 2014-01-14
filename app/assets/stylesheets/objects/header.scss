@@ -1,0 +1,19 @@
+$header-height: 50px;
+
+#header {
+  
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  background: $greensea;
+  height: $header-height;
+  z-index: 1;
+  
+}
+
+main {
+  padding: {
+    top: $header-height;
+  }
+}
