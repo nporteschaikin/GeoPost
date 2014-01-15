@@ -5,10 +5,8 @@ main {
     
     > header {
       height: 300px;
-      background: $greensea;
       color: $white;
       position: relative;
-      @include prefix(text-shadow, $shadowC);
       
       > div {
         width: 100%;
@@ -16,10 +14,10 @@ main {
       }
       
       > hgroup {
+        @include prefix(text-shadow, $shadowC);
         z-index: 1;
         position: absolute;
-        bottom: 0;
-        width: $width;
+        bottom: $margin;
         left: 50%;
         padding: ($margin * 2) 0;
         margin: {

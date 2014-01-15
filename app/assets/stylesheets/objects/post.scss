@@ -44,7 +44,6 @@ article {
     }
     
     > header {
-      @extend %serif;
       padding: ($margin / 2) $margin;
       background: $clouds;
       border: {
@@ -55,9 +54,6 @@ article {
         weight: 500;
       }
       color: #666;
-      i {
-        color: $pomegranate;
-      }
     }
     
     p {

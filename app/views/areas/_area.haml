@@ -1,3 +1,8 @@
+- content_for :menu do
+  = link_to "#", class: "button" do
+    %i.map
+    #{area.label}
+
 %main.Area
   
   %header
@@ -10,7 +15,7 @@
   
   %script{type: "text/javascript"}
     \//<![CDATA[
-    var area = new M('main.Area > header > div', #{area.bounds}, '');
+    var area = new M('main.Area > header > div', #{area.bounds}, '#{image_path "icons/marker.png"}');
     \//]]>
     
   %div

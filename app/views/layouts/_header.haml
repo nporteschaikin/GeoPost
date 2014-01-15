@@ -1,1 +1,9 @@
 %header#header
+  %nav
+    %ul
+      %li
+        = yield :menu
+      %li
+        - if signed_in?
+          %figure
+            = image_tag current_user.avatar.url(:tiny)
