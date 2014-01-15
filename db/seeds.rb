@@ -11,16 +11,20 @@ east_village_area = first_user.areas.create!(place: Place.find_or_create("35 Gre
 westchester_area = second_user.areas.create!(place: Place.find_or_create("21 Elena Drive, Cortlandt Manor, NY 10567"), radius: 20, label: "Husband")
 norwalk_area = second_user.areas.create!(place: Place.find_or_create("Norwalk, CT"), radius: 20, label: "Home")
 
+# categories
+Category.destroy_all
+first_category = Category.create!(name: "For Sale", slug: "for-sale")
+second_category = Category.create!(name: "Events", slug: "events")
+
 # posts 
 lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut bibendum odio. Donec nibh tortor, auctor sed suscipit vitae, bibendum a turpis."
 Post.destroy_all
-first_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("179 Bedford Ave, Brooklyn, NY 11211"))
-second_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("359 Bowery, New York, NY 10003"))
-third_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"))
-
-fourth_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"))
-fifth_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"))
-sixth_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"))
+first_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("179 Bedford Ave, Brooklyn, NY 11211"), category: first_category)
+second_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("359 Bowery, New York, NY 10003"), category: first_category)
+third_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: first_category)
+fourth_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: second_category)
+fifth_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: second_category)
+sixth_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: second_category)
 
 # likes
 Like.destroy_all

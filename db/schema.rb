@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140110040955) do
+ActiveRecord::Schema.define(:version => 20140115212016) do
 
   create_table "areas", :force => true do |t|
     t.integer  "user_id"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(:version => 20140110040955) do
 
   add_index "assets", ["attached_id"], :name => "index_assets_on_attached_id"
 
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -49,6 +55,24 @@ ActiveRecord::Schema.define(:version => 20140110040955) do
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "filter_rules", :force => true do |t|
+    t.integer  "filter_id"
+    t.string   "model"
+    t.string   "attr"
+    t.string   "operator"
+    t.string   "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "filter_rules", ["filter_id"], :name => "index_filter_rules_on_filter_id"
+
+  create_table "filters", :force => true do |t|
+    t.integer "user_id"
+  end
+
+  add_index "filters", ["user_id"], :name => "index_filters_on_user_id"
 
   create_table "likes", :force => true do |t|
     t.integer  "liked_id"
@@ -71,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20140110040955) do
   create_table "posts", :force => true do |t|
     t.integer  "place_id"
     t.integer  "user_id"
+    t.integer  "category_id"
     t.text     "message"
     t.integer  "likes_count",    :default => 0
     t.integer  "comments_count", :default => 0
@@ -80,6 +105,19 @@ ActiveRecord::Schema.define(:version => 20140110040955) do
 
   add_index "posts", ["place_id"], :name => "index_posts_on_place_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
+  create_table "tag_relationships", :force => true do |t|
+    t.integer "tagged_id"
+    t.string  "tagged_type"
+    t.integer "tag_id"
+  end
+
+  add_index "tag_relationships", ["tag_id"], :name => "index_tag_relationships_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+    t.string "slug"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.references :place
       t.references :user
+      t.references :category
       t.text :message
       t.integer :likes_count, default: 0
       t.integer :comments_count, default: 0

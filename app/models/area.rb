@@ -17,8 +17,7 @@ class Area < ActiveRecord::Base
   
   area_associations   :posts
   
-  validates_associated        :user, :place
-  validates_presence_of       :user, :place, :label
+  validates_presence_of       :user_id, :place_id, :label
   validates_numericality_of   :radius
   
   after_save    :update_user_default_area_if_nil

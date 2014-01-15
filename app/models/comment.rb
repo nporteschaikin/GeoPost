@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   
-  include Likeable
+  include Likes::Base
   
   belongs_to    :user
   belongs_to    :post, counter_cache: true
@@ -9,8 +9,7 @@ class Comment < ActiveRecord::Base
   
   attr_accessible   :message, :user
   
-  validates_associated  :user, :post
-  validates_presence_of :user, :post, :message
+  validates_presence_of :user_id, :post_id, :message
   validates             :message, length: { maximum: 250 }
   
 end
