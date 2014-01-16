@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140115213556) do
+ActiveRecord::Schema.define(:version => 20140116162558) do
 
   create_table "areas", :force => true do |t|
     t.integer  "user_id"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20140115213556) do
 
   create_table "filter_rules", :force => true do |t|
     t.integer  "filter_id"
-    t.string   "rule"
+    t.string   "scope"
     t.text     "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
