@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  include Assets::Associations
+  include Assets::Base
   
   attr_accessible   :username, :first_name, :last_name, :email, 
                     :password, :password_confirmation, :date_of_birth
