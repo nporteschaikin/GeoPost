@@ -39,6 +39,12 @@ first_post.comments.create!(user: first_user, message: lorem_ipsum)
 second_post.comments.create!(user: second_user, message: lorem_ipsum)
 third_post.comments.create!(user: first_user, message: lorem_ipsum)
 
+# tags
+first_post.tag! ["for sale", "computer"]
+fifth_post.tag! ["for sale", "computer", "laptop"]
+fourth_post.tag! ["chicken", "computer"]
+fifth_post.tag! ["fnoah", "ethan"]
+
 # avatars
 Asset.destroy_all
 sample_path = File.join(Rails.root, "public", "seeds")

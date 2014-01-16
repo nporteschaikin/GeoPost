@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140116162558) do
+ActiveRecord::Schema.define(:version => 20140115201758) do
 
   create_table "areas", :force => true do |t|
     t.integer  "user_id"
@@ -55,24 +55,6 @@ ActiveRecord::Schema.define(:version => 20140116162558) do
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-
-  create_table "filter_rules", :force => true do |t|
-    t.integer  "filter_id"
-    t.string   "scope"
-    t.text     "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "filter_rules", ["filter_id"], :name => "index_filter_rules_on_filter_id"
-
-  create_table "filters", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "filters", ["user_id"], :name => "index_filters_on_user_id"
 
   create_table "likes", :force => true do |t|
     t.integer  "liked_id"
