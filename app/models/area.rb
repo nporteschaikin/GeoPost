@@ -1,14 +1,6 @@
 class Area < ActiveRecord::Base
   
-  class << self
-    def area_associations *associations
-      associations.each do |association|
-        define_method association do
-          "#{association}".classify.constantize.within bounds
-        end
-      end
-    end
-  end
+  include Areas::Association
   
   attr_accessible   :label, :radius, :place, :user
   
