@@ -1,0 +1,43 @@
+article {
+  &.Post {
+
+    $avatar-width: 75px;
+    margin-bottom: $margin * 3;
+
+    > figure {
+      @extend %hover-translateY;
+      width: $avatar-width;
+      position: absolute;
+      img {
+        @include prefix(border-radius, $avatar-width / 2);
+        display: block;
+        width: 100%;
+      }
+    }
+
+    > div {
+      padding-left: $avatar-width + ($margin);
+    }
+
+    header {
+      font-size: 15px;
+      line-height: 1.4em;
+      > a {
+        font-weight: 600;
+      }
+      > span {
+        font-weight: 300;
+        color: $asbestos;
+      }
+    }
+
+    footer {
+      font-size: 12px;
+      line-height: 1.4em;
+      a {
+        color: $asbestos;
+      }
+    }
+
+  }
+}

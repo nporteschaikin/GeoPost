@@ -6,13 +6,18 @@
   #{$attribute}: $value;
 }
 
-@mixin inline-block {
-  display: -moz-inline-stack;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-}
 
-@mixin circle($width) {
-  @include prefix(border-radius, ($width / 2));
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
 }

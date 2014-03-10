@@ -1,0 +1,66 @@
+$nav-width: 225px;
+
+main {
+  &.App {
+
+    > nav {
+
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: $nav-width;
+      background: #222;
+      color: $silver;
+
+      a {
+        color: $clouds;
+        padding-left: $margin / 6;
+        font-weight: 600;
+      }
+
+      > header {
+        @include prefix(box-shadow, 0 0 $margin rgba(0, 0, 0, 0.2));
+        @include prefix(animation, nav-in 1s ease-in-out);
+        margin-top: $margin;
+        margin-right: $margin;
+        padding: $margin ($margin * 2);
+        color: $clouds;
+        background: $pomegranate;
+      }
+
+      > div {
+        padding: $margin * 2;
+      }
+
+      ul {
+        color: $silver;
+      }
+
+      li {
+        font-size: 15px;
+        line-height: 1.7em;
+      }
+
+    }
+
+    > div {
+
+      padding: ($margin * 2) ($margin * 2) ($margin * 2) ($nav-width + ($margin * 2));
+
+    }
+
+  }
+
+}
+
+@include keyframes(nav-in) {
+  0% {
+    opacity: 0;
+    @include prefix(transform, translateX(-$nav-width));
+  }
+  100% {
+    opacity: 1;
+    @include prefix(transform, translateX(0));
+  }
+}

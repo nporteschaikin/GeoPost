@@ -1,23 +1,10 @@
 %article.Post
-
-  %header
-    %i.pin
-    #{post.place.address}
-    
+  %figure
+    = image_tag post.user.avatar.url(:medium)
   %div
-      
-    %section
-      = simple_format post.message
-      
+    %header
+      = link_to post.user.username, post.user
+      %span #{time_ago_in_words(post.created_at)} ago
+    = simple_format(post.message)
     %footer
-      %figure
-        = image_tag post.user.avatar.url(:tiny) unless post.user.avatar.nil?
-      %ul 
-        %li #{link_to post.user.username, post.user} 
-        %li #{link_to "#{time_ago_in_words post.created_at} ago", post}
-        
-  - if map
-    %script{type: "text/javascript"}
-      \//<![CDATA[
-      #{map}.addPlace([#{post.place.latitude}, #{post.place.longitude}]);
-      \//]]>
+      = link_to post.place.address, post.place

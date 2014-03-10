@@ -1,22 +1,16 @@
-- content_for :menu do
-  = link_to "#", class: "button" do
-    %i.map
-    #{area.label}
+%main.App
 
-%main.Area
-  
-  %header
+  %nav
+    %header
+      %h3
+        = area.label
+
     %div
-    %hgroup
-      %h1
-        %i.map
-        #{area.label}
-      %h4 within #{pluralize area.radius, "mile"} of #{area.address}
-  
-  %script{type: "text/javascript"}
-    \//<![CDATA[
-    var area = new M('main.Area > header > div', #{area.bounds}, '#{image_path "icons/marker.png"}');
-    \//]]>
-    
+      %hgroup
+        %h5 Tags
+      %ul
+        - Tag.all.each do |tag|
+          %li ##{link_to tag.name, "#"}
+
   %div
-    = render area.posts.listing, area: area, map: "area"
+    = render area.posts
