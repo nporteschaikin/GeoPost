@@ -7,4 +7,5 @@
       %span #{time_ago_in_words(post.created_at)} ago
     = simple_format(post.message)
     %footer
+      %i.pin
       = link_to post.place.address, post.place

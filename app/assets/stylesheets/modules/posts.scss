@@ -41,3 +41,17 @@ article {
 
   }
 }
+
+form {
+  &.Composer {
+
+    padding: $margin;
+    background: $clouds;
+    margin-bottom: $margin * 2;
+
+    textarea {
+      width: 100%;
+    }
+
+  }
+}

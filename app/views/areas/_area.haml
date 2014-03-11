@@ -1,9 +1,6 @@
 %main.App
 
   %nav
-    %header
-      %h3
-        = area.label
 
     %div
       %hgroup
@@ -12,5 +9,6 @@
         - Tag.all.each do |tag|
           %li ##{link_to tag.name, "#"}
 
-  %div
+  %div.main
+    = render "posts/composer", post: @post
     = render area.posts
