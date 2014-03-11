@@ -1,9 +1,21 @@
 .button {
 
-  @include prefix(border-radius, 4px);
+  @include prefix(transition, all 0.25s ease);
   margin: 0;
   border: 0;
   display: inline-block;
+  font-size: 12px;
+  white-space: nowrap;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.transform {
+    @include prefix(transform, translateY(3px));
+  }
+
+  &.rounded {
+    @include prefix(border-radius, 2px);
+  }
 
   &.large {
     padding: $margin;
@@ -17,7 +29,21 @@
     padding: ($margin / 4);
   }
 
+  &.green {
+    background: $greensea;
+    color: $clouds;
+    &:hover {
+      background: $turquoise;
+    }
+  }
 
+  &.blue {
+    background: $belizehole;
+    color: $clouds;
+    &:hover {
+      background: $peterriver;
+    }
+  }
 
 }
 

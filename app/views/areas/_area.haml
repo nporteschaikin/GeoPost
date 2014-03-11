@@ -1,14 +1,25 @@
-%main.App
+.Area
+
+  %header
+
+    %div
+      %h5
+        %span.radius
+          %span
+          = area.radius
+        = area.address
+      %ul
+        %li.search
+          %input{type: "text", placeholder: "Search..."}
 
   %nav
 
-    %div
-      %hgroup
-        %h5 Tags
-      %ul
-        - Tag.all.each do |tag|
-          %li ##{link_to tag.name, "#"}
+    %hgroup
+      %h5 Categories
 
-  %div.main
-    = render "posts/composer", post: @post
+    %ul
+      - Category.all.each do |category|
+        %li= nav_link_to category.name, category_area_path(area, category)
+
+  %div
     = render area.posts

@@ -2,7 +2,11 @@ class AreasController < ApplicationController
 
   def show
     @area  = Area.find params[:id]
-    @post  = Post.new unless current_user?(@area.user)
+    @posts = @area.posts
+  end
+
+  def category
+    @category  =  Category.find(params[:id])
   end
 
 end

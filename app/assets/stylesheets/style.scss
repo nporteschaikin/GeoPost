@@ -16,7 +16,8 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.5em;
+  line-height: 1.4em;
+  position: relative;
 }
 
 h1 {
@@ -26,17 +27,17 @@ h1 {
 
 h2 {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 h3 {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 h4 {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 h5 {
@@ -47,7 +48,7 @@ h5 {
 
 h6 {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 hgroup {
@@ -56,15 +57,13 @@ hgroup {
 
 a {
   @include prefix(transition, all 1s ease);
-  color: $wetasphalt;
+  color: $blackC;
   text-decoration: none;
-  &:hover {
-    color: $midnightblue;
-  }
 }
 
 body {
-  color: #333;
+  color: $blackC;
+  background: $clouds;
 }
 
 p {

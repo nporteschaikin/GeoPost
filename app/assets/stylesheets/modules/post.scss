@@ -22,9 +22,6 @@ article {
     header {
       font-size: 15px;
       line-height: 1.4em;
-      > a {
-        font-weight: 600;
-      }
       > span {
         font-weight: 300;
         color: $asbestos;
@@ -37,20 +34,6 @@ article {
       a {
         color: $asbestos;
       }
-    }
-
-  }
-}
-
-form {
-  &.Composer {
-
-    padding: $margin;
-    background: $clouds;
-    margin-bottom: $margin * 2;
-
-    textarea {
-      width: 100%;
     }
 
   }

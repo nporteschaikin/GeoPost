@@ -8,6 +8,11 @@ Places::Application.routes.draw do
   post    "/in"   => "sessions#create",  as: :new_session
   delete  "/out"  => "sessions#destroy", as: :sign_out
 
-  resources   :users, :posts, :areas, :places
+  resources   :users, :posts, :places
+  resources :areas do
+    member do
+      get "category/:id", as: :category, action: :category
+    end
+  end
 
 end

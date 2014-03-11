@@ -1,0 +1,16 @@
+input[type=text] {
+
+  border: 0;
+  margin: 0;
+  line-height: 1;
+  outline: none;
+
+  &.transparent {
+    background: transparent;
+  }
+
+  &:focus {
+
+  }
+
+}

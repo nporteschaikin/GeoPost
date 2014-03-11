@@ -5,3 +5,9 @@
     @include prefix(transform, translateY(-3px));
   }
 }
+
+%capitalized-template {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}

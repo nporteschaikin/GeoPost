@@ -1,48 +1,62 @@
-main {
-  &.App {
+.App {
 
-    $nav-width: 225px;
-    $header-height: 0;
+  $nav-width: 180px;
 
-    position: relative;
-    top: $header-height;
+  > nav {
 
-    > nav {
-
-      position: fixed;
-      left: 0;
-      top: $header-height;
-      bottom: 0;
-      width: $nav-width;
-      background: #222;
-      color: $silver;
-
-      a {
-        color: $clouds;
-        padding-left: $margin / 6;
-        font-weight: 600;
-      }
-
-      > div {
-        padding: $margin * 2;
-      }
-
-      ul {
-        color: $silver;
-      }
-
-      li {
-        font-size: 15px;
-        line-height: 1.7em;
-      }
-
-    }
+    position: fixed;
+    width: $nav-width;
+    background: $blackB;
+    top: 0;
+    left: 0;
+    bottom: 0;
 
     > div {
 
-      padding: ($margin * 2) ($margin * 2) ($margin * 2) ($nav-width + ($margin * 2));
+      @extend %capitalized-template;
+
+      a {
+        display: block;
+        color: $white;
+      }
+
+      > header {
+
+        a {
+          background: $turquoise;
+          padding: $margin * 2;
+          &:hover {
+            background: $greensea;
+          }
+        }
+
+      }
+
+      > ul {
+
+        padding: $margin 0;
+
+        a {
+          padding: ($margin * 0.75) ($margin * 2);
+          &:hover,
+          &.active {
+            background: $blackA;
+          }
+        }
+
+      }
 
     }
+
+  }
+
+
+  > div {
+
+    position: absolute;
+    left: $nav-width;
+    right: 0;
+    top: 0;
 
   }
 
