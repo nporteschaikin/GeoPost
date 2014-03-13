@@ -1,15 +1,15 @@
 .Area {
 
-  $header-height: 60px;
-  $nav-width: 220px;
+  $area-header-height: 60px;
   position: relative;
 
   > header {
 
     @extend %capitalized-template;
     color: $blackA;
-    background: $white;
-    padding: ($margin * 2) ($margin * 3);
+    border-bottom: 1px solid $silver;
+    padding: ($margin * 2) 0;
+    margin: 0 ($margin * 5);
 
     > div {
       position: relative;
@@ -17,40 +17,7 @@
 
     .radius {
 
-      color: $alizarin;
-
-    }
-
-  }
-
-  > nav {
-    width: $nav-width;
-    position: absolute;
-    top: $header-height;
-    left: 0;
-    padding: ($margin * 2) ($margin * 2) ($margin * 2) ($margin * 3);
-    color: $blackI;
-
-    li {
-
-      font-size: 13px;
-      font-weight: 600;
-
-      > a {
-        @include prefix(border-radius, 2px);
-        display: block;
-        margin-left: -$margin;
-        padding: ($margin / 3) $margin;
-        &:hover {
-          background: $white;
-        }
-      }
-
-    }
-
-    ul {
-
-      margin-bottom: $margin * 3;
+      color: $pomegranate;
 
     }
 
@@ -60,7 +27,7 @@
 
     position: absolute;
     top: $header-height;
-    left: $nav-width;
+    left: 0;
     right: 0;
     bottom: 0;
     padding: ($margin * 3) ($margin * 5);

@@ -1,0 +1,9 @@
+%header#header
+  %ul.right
+    - if signed_in?
+      %li
+        = link_to new_post_path, class: "button large green rounded" do
+          Compose
+      %li
+        %label
+          = image_tag current_user.avatar.url(:tiny)

@@ -7,8 +7,8 @@
     position: fixed;
     width: $nav-width;
     background: $blackB;
-    top: 0;
-    left: 0;
+    top: $header-height;
+    right: 0;
     bottom: 0;
 
     > div {
@@ -23,7 +23,7 @@
       > header {
 
         a {
-          background: $turquoise;
+          background: $greensea;
           padding: $margin * 2;
           &:hover {
             background: $greensea;
@@ -54,9 +54,9 @@
   > div {
 
     position: absolute;
-    left: $nav-width;
-    right: 0;
-    top: 0;
+    right: $nav-width;
+    left: 0;
+    top: $header-height;
 
   }
 

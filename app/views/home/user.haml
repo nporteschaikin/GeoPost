@@ -6,7 +6,7 @@
       %header= link_to "New Area +", "#"
       %ul
         - current_user.areas.each do |area|
-          %li= link_to area.label, area, class: area == current_user.default_area ? "active" : nil
+          %li= link_to area.label, area, class: (area == current_user.default_area ? "active" : nil), data: {app: true}
 
   %div
     = render current_user.default_area

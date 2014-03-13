@@ -1,11 +1,25 @@
-%article.Post
-  %figure
-    = image_tag post.user.avatar.url(:medium)
+.Post
   %div
-    %header
-      = link_to post.user.username, post.user
-      %span #{time_ago_in_words(post.created_at)} ago
-    = simple_format(post.body)
-    %footer
-      %i.pin
-      = link_to post.place.address, post.place
+    %div
+      %header
+        %figure
+          = image_tag post.user.avatar.url(:tiny)
+        %span.user
+          = link_to post.user do
+            #{post.user.full_name} (#{post.user.username})
+        %span.date
+          = link_to "#{time_ago_in_words(post.created_at)} ago", post
+        %hgroup
+          %h1= post.title
+      %div.body
+        = simple_format post.body
+  / %figure
+  /   = image_tag post.user.avatar.url(:medium)
+  / %div
+  /   %header
+  /     = link_to post.user.username, post.user
+  /     %span #{time_ago_in_words(post.created_at)} ago
+  /   = simple_format(post.body)
+  /   %footer
+  /     %i.pin
+  /     = link_to post.place.address, post.place

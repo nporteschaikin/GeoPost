@@ -8,16 +8,5 @@
         = area.radius
       = area.short_address
 
-  %nav
-
-    %hgroup
-      %h5
-        %i.category
-        Categories
-
-    %ul
-      - Category.all.each do |category|
-        %li= link_to category.name, category_area_path(category, area)
-
   %div
     = render area.posts

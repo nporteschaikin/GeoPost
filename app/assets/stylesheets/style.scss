@@ -64,6 +64,10 @@ a {
 body {
   color: $blackC;
   background: $clouds;
+  position: relative;
+  padding: {
+    top: $header-height;
+  }
 }
 
 p {

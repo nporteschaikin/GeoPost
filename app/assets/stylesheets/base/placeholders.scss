@@ -11,3 +11,11 @@
   font-weight: 600;
   text-transform: uppercase;
 }
+
+%inline-block {
+  @include inline-block;
+}
+
+%inline-block-parent {
+  @include inline-block-parent;
+}

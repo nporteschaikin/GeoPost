@@ -21,3 +21,16 @@
     @content;
   }
 }
+
+@mixin inline-block {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  vertical-align: top;
+}
+
+@mixin inline-block-parent {
+  font-size: 0;
+  line-height: 0;
+}

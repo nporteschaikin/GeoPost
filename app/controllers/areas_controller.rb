@@ -2,7 +2,9 @@ class AreasController < ApplicationController
 
   def show
     @area  = Area.find params[:id]
-    @posts = @area.posts
+    respond_to do |f|
+      f.js { render layout: false }
+    end
   end
 
   def category
