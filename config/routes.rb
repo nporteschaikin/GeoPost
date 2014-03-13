@@ -11,7 +11,7 @@ Places::Application.routes.draw do
   resources   :users, :posts, :places
   resources :areas do
     member do
-      get "category/:id", as: :category, action: :category
+      get "category/:category", as: :category, action: :category
     end
   end
 

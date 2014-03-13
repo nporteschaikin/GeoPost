@@ -27,35 +27,39 @@ i {
     transform: none;
   }
 
-
+	&:before {
+		position: relative;
+		top: 1px;
+	}
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-  &.user {
+  &.tag {
     &:before {
       content: "\e600";
     }
   }
 
-  &.like {
+  &.pin {
     &:before {
       content: "\e601";
     }
   }
 
-  &.pin {
+  &.category {
     &:before {
       content: "\e602";
     }
   }
 
-  &.map {
+  &.arrow {
+
     &:before {
       content: "\e603";
     }
   }
 
-  &.conversation {
+  &.area {
     &:before {
       content: "\e604";
     }

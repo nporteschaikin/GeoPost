@@ -3,23 +3,21 @@
   %header
 
     %div
-      %h5
-        %span.radius
-          %span
-          = area.radius
-        = area.address
-      %ul
-        %li.search
-          %input{type: "text", placeholder: "Search..."}
+      %span.radius
+        %i.area
+        = area.radius
+      = area.short_address
 
   %nav
 
     %hgroup
-      %h5 Categories
+      %h5
+        %i.category
+        Categories
 
     %ul
       - Category.all.each do |category|
-        %li= nav_link_to category.name, category_area_path(area, category)
+        %li= link_to category.name, category_area_path(category, area)
 
   %div
     = render area.posts
