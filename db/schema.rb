@@ -78,7 +78,8 @@ ActiveRecord::Schema.define(:version => 20140115201758) do
     t.integer  "place_id"
     t.integer  "user_id"
     t.integer  "category_id"
-    t.text     "message"
+    t.string   "title"
+    t.text     "body"
     t.integer  "likes_count",    :default => 0
     t.integer  "comments_count", :default => 0
     t.datetime "created_at",                    :null => false

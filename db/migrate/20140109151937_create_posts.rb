@@ -4,7 +4,8 @@ class CreatePosts < ActiveRecord::Migration
       t.references :place
       t.references :user
       t.references :category
-      t.text :message
+      t.string :title
+      t.text :body
       t.integer :likes_count, default: 0
       t.integer :comments_count, default: 0
 
