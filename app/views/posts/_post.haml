@@ -5,7 +5,7 @@
     %header
       = link_to post.user.username, post.user
       %span #{time_ago_in_words(post.created_at)} ago
-    = simple_format(post.message)
+    = simple_format(post.body)
     %footer
       %i.pin
       = link_to post.place.address, post.place

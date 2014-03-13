@@ -8,23 +8,24 @@ Area.destroy_all
 Place.destroy_all
 williamsburg_area = first_user.areas.create!(place: Place.find_or_create("109 North 5th St, Brooklyn, NY 11249"), radius: 0.5, label: "Home")
 east_village_area = first_user.areas.create!(place: Place.find_or_create("35 Great Jones St., New York, NY 10012"), radius: 1, label: "Work")
-westchester_area = second_user.areas.create!(place: Place.find_or_create("21 Elena Drive, Cortlandt Manor, NY 10567"), radius: 20, label: "Husband")
-norwalk_area = second_user.areas.create!(place: Place.find_or_create("Norwalk, CT"), radius: 20, label: "Home")
+westchester_area = first_user.areas.create!(place: Place.find_or_create("21 Elena Drive, Cortlandt Manor, NY 10567"), radius: 20, label: "Dad")
+norwalk_area = first_user.areas.create!(place: Place.find_or_create("Norwalk, CT"), radius: 20, label: "Mom")
 
 # categories
 Category.destroy_all
 first_category = Category.create!(name: "For Sale", slug: "for-sale")
 second_category = Category.create!(name: "Events", slug: "events")
 
-# posts 
+# posts
 lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut bibendum odio. Donec nibh tortor, auctor sed suscipit vitae, bibendum a turpis."
+lorem_ipsum_title = "Lorem ipsum dolor sit amet"
 Post.destroy_all
-first_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("179 Bedford Ave, Brooklyn, NY 11211"), category: first_category)
-second_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("359 Bowery, New York, NY 10003"), category: first_category)
-third_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: first_category)
-fourth_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: second_category)
-fifth_post = Post.create!(message: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: second_category)
-sixth_post = Post.create!(message: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: second_category)
+first_post = Post.create!(title: lorem_ipsum_title, body: lorem_ipsum, user: second_user, place: Place.find_or_create("179 Bedford Ave, Brooklyn, NY 11211"), category: first_category)
+second_post = Post.create!(title: lorem_ipsum_title, body: lorem_ipsum, user: first_user, place: Place.find_or_create("359 Bowery, New York, NY 10003"), category: first_category)
+third_post = Post.create!(title: lorem_ipsum_title, body: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: first_category)
+fourth_post = Post.create!(title: lorem_ipsum_title, body: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: second_category)
+fifth_post = Post.create!(title: lorem_ipsum_title, body: lorem_ipsum, user: first_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: second_category)
+sixth_post = Post.create!(title: lorem_ipsum_title, body: lorem_ipsum, user: second_user, place: Place.find_or_create("100 Greyrock Pl, Stamford, CT"), category: second_category)
 
 # likes
 Like.destroy_all
