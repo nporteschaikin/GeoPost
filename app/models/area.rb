@@ -39,18 +39,22 @@ class Area < ActiveRecord::Base
     end
 
     def update_map_from_google
-      map   = build_map(attachment: open(google_maps_url))
-      map.save
+      create_map(
+        attachment: open(google_maps_url)
+      )
     end
 
     def google_maps_url
-      "http://maps.googleapis.com/maps/api/staticmap?center=#{place.latitude},#{place.longitude}&zoom=#{google_maps_zoom_level}&size=640x640&sensor=false"
+      "http://maps.googleapis.com/maps/api/staticmap?#{google_maps_parameters.to_query}"
     end
-
-    def google_maps_zoom_level
-      # source: http://jeffjason.com/2011/12/google-maps-radius-to-zoom/
-      # this is not perfect by any stretch...
-      (14 - Math.log(radius) / Math.log(2)).round
+    
+    def google_maps_parameters
+      {
+        center: "#{place.latitude},#{place.longitude}",
+        zoom: (14 - Math.log(radius) / Math.log(2)).round, # http://jeffjason.com/2011/12/google-maps-radius-to-zoom/
+        size: "640x640",
+        sensor: false 
+      }
     end
 
 end
