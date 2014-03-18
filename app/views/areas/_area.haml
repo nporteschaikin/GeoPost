@@ -1,12 +1,2 @@
 .Area
-
-  %header
-
-    %div
-      %span.radius
-        %i.area
-        = area.radius
-      = area.short_address
-
-  %div
-    = render area.posts
+  = image_tag area.map.url(:original)

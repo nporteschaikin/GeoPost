@@ -4,6 +4,7 @@ class AreasController < ApplicationController
     @area  = Area.find params[:id]
     respond_to do |f|
       f.js { render layout: false }
+      f.html
     end
   end
 
