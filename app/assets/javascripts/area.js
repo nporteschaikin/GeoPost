@@ -6,8 +6,10 @@ _.area = {
   },
   
   construct: function () {
+    
     var map;
     map   = new Map(_.$('area/parent', 'area/map'));
+    
   }
 
 }

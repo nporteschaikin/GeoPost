@@ -31,6 +31,24 @@ class Place < ActiveRecord::Base
       errors.add :base, "No places match the query '#{query}'"
     end
   end
+  
+  def for_geojson
+    {
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [latitude, longitude]
+      },
+      properties: {
+        name: address
+      }
+    }
+  end
+  
+  def to_geojson
+    for_geojson
+      .to_json
+  end
 
   def method_missing method, *args, &block
     case method

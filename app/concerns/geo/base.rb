@@ -8,6 +8,7 @@ module Geo
 
       belongs_to       :place
       delegate         :query, :query=, to: :place, prefix: true
+      delegate         :to_geojson, :for_geojson, to: :place, prefix: false
       validates        :place, associated: true, presence: true
       attr_accessible  :place_query
 
@@ -34,6 +35,18 @@ module Geo
         super || build_place
       end
 
+    end
+    module ClassMethods
+      def for_geojson
+        {
+          type: "FeatureCollection",
+          features: includes(:place).map(&:for_geojson)
+        }
+      end
+      def to_geojson
+        for_geojson
+          .to_json
+      end
     end
   end
 end

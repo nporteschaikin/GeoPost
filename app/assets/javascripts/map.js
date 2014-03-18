@@ -1,6 +1,6 @@
 var Map = function ($element) {
   
-  var id;
+  var id, object, featureLayer;
   id  =  $element.attr('id');
   
   this.element = $element;
@@ -10,16 +10,23 @@ var Map = function ($element) {
     $element.attr('id', id);
   }
   
-  this.object = L.mapbox.map(id, 'nporteschaikin.hi95jbe4');
-  
-}
-
-Map.prototype.marker = function (geojson) {
-  
-  L
+  object = L
     .mapbox
-    .featureLayer()
-    .loadURL(geojson)
-    .addTo(this.object);
+    .map(id, 'nporteschaikin.hi95jbe4');
+  
+  if ($element.data('geojson')) {
+    
+    featureLayer = L
+      .mapbox
+      .featureLayer()
+      .loadURL($element.data('geojson'))
+      .addTo(object);
+      
+    featureLayer.on('ready',
+      function () {
+        // object.fitBounds(featureLayer.getBounds());
+      }
+    )
+  }
   
 }

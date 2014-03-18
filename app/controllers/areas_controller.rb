@@ -8,8 +8,11 @@ class AreasController < ApplicationController
     end
   end
 
-  def category
-    @category  =  Category.find(params[:id])
+  def posts
+    @area  = Area.find params[:id]
+    respond_to do |f|
+      f.json { render json: @area.posts.to_geojson }
+    end
   end
 
 end
