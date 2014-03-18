@@ -1,15 +1,25 @@
-function Map ($object) {
+var Map = function ($element) {
   
   var id;
-  id  =  $object.attr('id');
+  id  =  $element.attr('id');
   
-  this.object = $object;
+  this.element = $element;
   
   if (!id) {
-    id = Math.ceil((Math.random() * 1000));
-    $object.attr('id', 'Map' + id);
+    id = 'Map' + Math.ceil((Math.random() * 1000));
+    $element.attr('id', id);
   }
   
-  L.mapbox.map(id, 'nporteschaikin.hi9a4jdb');
+  this.object = L.mapbox.map(id, 'nporteschaikin.hi95jbe4');
+  
+}
+
+Map.prototype.marker = function (geojson) {
+  
+  L
+    .mapbox
+    .featureLayer()
+    .loadURL(geojson)
+    .addTo(this.object);
   
 }
